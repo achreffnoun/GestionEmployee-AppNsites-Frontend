@@ -9,7 +9,6 @@
           <th scope="col">Nom</th>
           <th scope="col">Prenom</th>
           <th scope="col">Email</th>
-          <th scope="col">Age</th>
           <th class="text-center" scope="col">Action</th>
         </tr>
       </thead>
@@ -18,10 +17,9 @@
           <td>{{u.nom}}</td>
           <td>{{u.prenom}}</td>
           <td>{{u.email}}</td>
-          <td>{{u.age}}</td>
           <td class="text-center">
-            <button class="btn btn-sm btn-primary" routerLink="/edit-user/{{u._id}}">Modifier</button>
-            <button class="btn btn-sm btn-danger" (click)="delete(u._id,i)">Supprimer</button>
+            <button class="btn btn-sm btn-primary" routerLink="/edit-user/{{u.email}}">Modifier</button>
+            <button class="btn btn-sm btn-danger" (click)="delete(u.email,i)">Supprimer</button>
           </td>
         </tr>
       </tbody>

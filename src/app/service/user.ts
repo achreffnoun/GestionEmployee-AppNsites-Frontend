@@ -1,7 +1,6 @@
 export class User {
-    _id!:String;
+    email!:String;
     nom!:String;
     prenom!:String;
-    email!:String;
-    age!:Number;
+
 }

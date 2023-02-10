@@ -19,25 +19,25 @@ export class UserDetailsComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private crud: CrudUserService
   ) {
-    this.getId = this.activatedRoute.snapshot.paramMap.get('id');
+    this.getId = this.activatedRoute.snapshot.paramMap.get('email');
     this.crud.GetUser(this.getId).subscribe(res => {
       this.updateForm.setValue({
-        nom: res['nom'],
-        prenom: res['prenom'],
         email: res['email'],
-        age: res['age']
+        nom: res['nom'],
+        prenom: res['prenom']
+
       });
     });
     this.updateForm = this.formBuilder.group({
-      nom: [''],
-      prenom: [''],
       email: [''],
-      age: ['']
+      nom: [''],
+      prenom: ['']
+
     })
   }
   ngOnInit() { }
   onUpdate(): any {
-    this.crud.UpdateUser(this.getId, this.updateForm.value)
+    this.crud.UpdateUser(this.updateForm.value)
     .subscribe((res) => {
         console.log('Data updated successfully!')
         this.ngZone.run(() => this.router.navigateByUrl('/users-list'))
